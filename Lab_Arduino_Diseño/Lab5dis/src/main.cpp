@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "BOT.h"
 
 #define Bot1 10
 #define Bot2 11
