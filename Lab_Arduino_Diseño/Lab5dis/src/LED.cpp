@@ -10,8 +10,8 @@ void Led::init() {
   off();
 }
 
-void Led::on() {
-  digitalWrite(pin, HIGH);
+void Led::on(int n, int c) {
+  digitalWrite(pin, bitRead(c,n));
 }
 
 void Led::off() {

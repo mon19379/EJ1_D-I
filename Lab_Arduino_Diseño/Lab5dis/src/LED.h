@@ -6,11 +6,12 @@ class Led {
   
   private:
     byte pin;
-    
+    int n;
+    int c;
   public:
     Led(byte pin);
     void init();
-    void on();
+    void on(int n, int c);
     void off();
 };
 #endif

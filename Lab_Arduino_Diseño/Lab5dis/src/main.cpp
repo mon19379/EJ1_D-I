@@ -15,15 +15,21 @@
 #define LD3 8
 #define LD4 9
 
-int C4bit = 0;
-int LED_C1[4] = {LD1, LD2, LD3, LD4};
-int LED_C2[4] = {LD1, LD2, LD3, LD4};
+uint8_t Cont = 0;
+uint8_t A = 0;
+uint8_t B = 0;
+uint8_t C = 0;
+uint8_t D = 0;
+
 
 Button Bo1(Bot1);
 Button Bo2(Bot2);
 Button Bo3(Bot3);
 
 Led L1(LD1);
+Led L2(LD2);
+Led L3(LD3);
+Led L4(LD4);
 
 void setup() {
   // put your setup code here, to run once:
@@ -32,8 +38,20 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if(Bo1.isPressed()){
-    L1.on();
-  }else{
-    L1.off();
+    Cont++;
   }
+  A = bitRead(Cont, 1);
+  B = bitRead(Cont, 2);
+  C = bitRead(Cont, 3);
+  D = bitRead(Cont, 4);
+
+  L1.on(1, Cont);
+  L2.on(2, Cont);
+  L3.on(3, Cont);
+  L4.on(4, Cont);
+
+
+ 
+
+
 }
