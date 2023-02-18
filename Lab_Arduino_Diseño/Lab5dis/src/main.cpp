@@ -15,7 +15,11 @@
 #define LD3 8
 #define LD4 9
 
-uint8_t Cont = 0;
+uint8_t Cont1 = 0;
+uint8_t Cont2 = 0;
+uint8_t ContF = 0;
+int SEL = 1;
+
 uint8_t A = 0;
 uint8_t B = 0;
 uint8_t C = 0;
@@ -33,23 +37,35 @@ Led L4(LD4);
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  //Bo1.getState();
+  //Bo2.getState();
+  
   if(Bo1.isPressed()){
-    Cont++;
+    ContF++;
   }
-  A = bitRead(Cont, 1);
-  B = bitRead(Cont, 2);
-  C = bitRead(Cont, 3);
-  D = bitRead(Cont, 4);
+  if(Bo2.isPressed()){
+    ContF--;
+  }
 
-  L1.on(1, Cont);
-  L2.on(2, Cont);
-  L3.on(3, Cont);
-  L4.on(4, Cont);
+  A = bitRead(ContF, 1);
+  B = bitRead(ContF, 2);
+  C = bitRead(ContF, 3);
+  D = bitRead(ContF, 4);
 
+  L1.on(A);
+  L2.on(B);
+  L3.on(C);
+  L4.on(D);
+  Serial.println(ContF);
+
+  if(Bo3.isPressed()){
+    SEL++;
+  }
 
  
 
