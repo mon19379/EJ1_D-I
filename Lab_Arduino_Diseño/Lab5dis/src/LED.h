@@ -5,12 +5,13 @@
 class Led {
   
   private:
-    byte pin;
-    uint8_t n;
+    uint8_t pins[8];
+    uint8_t Count;
+    uint8_t DigCount;
   public:
-    Led(byte pin);
+    Led(uint8_t pins[], uint8_t Count);
     void init();
-    void on(uint8_t n);
-    void off();
+    void begin();
+    void increment();
 };
 #endif
