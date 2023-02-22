@@ -9,11 +9,13 @@ class cont {
     uint8_t pin[4];
     uint8_t c;
     uint8_t max;
+    uint8_t min;
   public:
     cont( uint8_t pines [], uint8_t cuenta);
     void init();
     void incremento();
     void decremento();
+    
     
 };
 #endif

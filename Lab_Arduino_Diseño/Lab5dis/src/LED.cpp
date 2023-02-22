@@ -2,11 +2,11 @@
 
 cont::cont(uint8_t pines[], uint8_t cuenta){
   if (cuenta <= 4){
-    cuenta = cuenta;
+    x = cuenta;
   }
 
   else{
-    cuenta = 4;
+    x = 4;
   }
 
   for(int i = 0; i < x; i++){
@@ -30,7 +30,7 @@ void cont::incremento(){
   }
 
   else{
-    x = (1 << x) - 1 ;
+    max = (1 << x) - 1 ;
   }
 
   uint8_t m = 1;
@@ -48,5 +48,33 @@ void cont::incremento(){
 
   else{
     c++;
+  }
+}
+
+void cont::decremento(){
+   if(x == 4){
+    min = 0;
+
+  }
+
+  else{
+    min = (1 << x) -1 ;
+  }
+
+  uint8_t m = 1;
+  uint8_t valor;
+
+ for(int i = 0; i < x ; i++){
+    valor = (c & m) ? 1:0;
+    digitalWrite(pin[i], valor);
+    m = m << 1;
+ }
+
+  if(c < min){
+    c = 0;
+  }
+
+  else{
+    c--;
   }
 }
