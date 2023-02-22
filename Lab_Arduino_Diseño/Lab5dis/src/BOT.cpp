@@ -2,34 +2,25 @@
 
 Button::Button(byte pin) {
   this->pin = pin;
-  lastReading = LOW;
+
   init();
 }
 
 void Button::init() {
   pinMode(pin, INPUT);
-  update();
 }
 
-void Button::update() {
-    byte newReading = digitalRead(pin);
-    
-    if (newReading != lastReading) {
-      lastDebounceTime = millis();
+void Button::estado() {
+    es = digitalRead(pin);
+      if(es==1){
+        boto = 1;
+      }
+
+      if(es==0 && boto ==1){
+        deb=!deb;
+        boto = 0;
+      }
+      return deb;
     }
 
-    if (millis() - lastDebounceTime > debounceDelay) {
-      state = newReading;
-    }
 
-    lastReading = newReading;
-}
-
-byte Button::getState() {
-  update();
-  return state;
-}
-
-bool Button::isPressed() {
-  return (getState() == HIGH);
-}
