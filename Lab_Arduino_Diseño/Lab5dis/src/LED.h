@@ -7,7 +7,7 @@ class cont {
   private:
     uint8_t x;
     uint8_t pin[4];
-    uint8_t c;
+    uint8_t c = 0;
     uint8_t max;
   public:
     cont( uint8_t pines [], uint8_t cuenta);

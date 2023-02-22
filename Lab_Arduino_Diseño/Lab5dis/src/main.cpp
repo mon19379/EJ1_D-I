@@ -29,10 +29,5 @@ void loop() {
   
   c1.incremento();
   delay(500);
-  
-
-
- 
-
 
 }

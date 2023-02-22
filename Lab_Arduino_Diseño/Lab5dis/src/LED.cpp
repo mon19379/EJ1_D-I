@@ -2,18 +2,14 @@
 
 cont::cont(uint8_t pines[], uint8_t cuenta){
   if (cuenta <= 4){
-    cuenta = cuenta;
+    x = cuenta;
   }
-
   else{
-    cuenta = 4;
+    x = 4;
   }
-
   for(int i = 0; i < x; i++){
     pin[i] = pines[i];
-  }
-
-  
+  }  
 }
 
 void cont::init(){
@@ -23,14 +19,13 @@ void cont::init(){
 }
 
 void cont::incremento(){
-
+  
   if(x == 4){
     max = 15;
-
   }
 
   else{
-    x = (1 << x) - 1 ;
+    max = (1 << x) - 1 ;
   }
 
   uint8_t m = 1;
