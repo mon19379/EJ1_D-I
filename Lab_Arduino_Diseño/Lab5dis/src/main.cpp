@@ -10,6 +10,9 @@
 #define Bot2 11
 #define Bot3 12
 
+int flag = 0;
+int flag1 = 0;
+
 cont c1((uint8_t[]){6, 7, 8, 9}, 4);
 
 
@@ -27,7 +30,31 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   
-  c1.incremento();
-  delay(500);
+  if(Bo1.isPressed()){
+    flag = 1;
+  }
 
-}
+  else if(flag == 1 && !Bo1.isPressed()){
+    flag = 0;
+    c1.incremento();
+    }
+  
+
+  if(Bo2.isPressed()){
+    flag1 = 1;
+  }
+
+  else if(flag1 == 1 && !Bo2.isPressed()){
+    flag1 = 0;
+    c1.decremento();
+    }
+ }
+  
+  
+
+  
+
+
+ 
+
+
