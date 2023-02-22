@@ -4,22 +4,16 @@
 #include <Arduino.h>
 
 class Button {
-  
-  private:
-    byte pin;
-    byte state;
-    byte lastReading;
-    unsigned long lastDebounceTime = 0;
-    unsigned long debounceDelay = 50;
     
   public:
+    byte pin;
+    int es;
+    int deb;
+    int boto;
+    
     Button(byte pin);
-
     void init();
-    void update();
-
-    byte getState();
-    bool isPressed();
+    void estado();
 };
 
 #endif

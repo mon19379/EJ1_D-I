@@ -1,19 +1,52 @@
 #include "LED.h"
 
-Led::Led(byte pin) {
-  this->pin = pin;
-  init();
+cont::cont(uint8_t pines[], uint8_t cuenta){
+  if (cuenta <= 4){
+    cuenta = cuenta;
+  }
+
+  else{
+    cuenta = 4;
+  }
+
+  for(int i = 0; i < x; i++){
+    pin[i] = pines[i];
+  }
+
+  
 }
 
-void Led::init() {
-  pinMode(pin, OUTPUT);
-  off();
+void cont::init(){
+  for(int i = 0; i < x; i++){
+    pinMode(pin[i], OUTPUT);
+  }
 }
 
-void Led::on(int n, int c) {
-  digitalWrite(pin, bitRead(c,n));
-}
+void cont::incremento(){
 
-void Led::off() {
-  digitalWrite(pin, LOW);
+  if(x == 4){
+    max = 15;
+
+  }
+
+  else{
+    x = (1 << x) - 1 ;
+  }
+
+  uint8_t m = 1;
+  uint8_t valor;
+
+ for(int i = 0; i < x ; i++){
+    valor = (c & m) ? 1:0;
+    digitalWrite(pin[i], valor);
+    m = m << 1;
+ }
+
+  if(c >= max){
+    c = 0;
+  }
+
+  else{
+    c++;
+  }
 }

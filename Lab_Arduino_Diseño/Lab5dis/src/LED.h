@@ -2,16 +2,18 @@
 #define MY_LED_H
 #include <Arduino.h>
 
-class Led {
+class cont {
   
   private:
-    byte pin;
-    int n;
-    int c;
+    uint8_t x;
+    uint8_t pin[4];
+    uint8_t c;
+    uint8_t max;
   public:
-    Led(byte pin);
+    cont( uint8_t pines [], uint8_t cuenta);
     void init();
-    void on(int n, int c);
-    void off();
+    void incremento();
+    void decremento();
+    
 };
 #endif
