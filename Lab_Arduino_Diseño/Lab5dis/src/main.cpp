@@ -24,8 +24,8 @@ int FLGC2;
 uint8_t Cont1;
 uint8_t Cont2;
 
-cont c1(Cont1);
-cont c2(Cont2);
+cont c1((uint8_t[]){6, 7, 8, 9}, Cont1);
+cont c2((uint8_t[]){6, 7, 8, 9}, Cont2);
 
 Button Bo1(Bot1);
 Button Bo2(Bot2);
