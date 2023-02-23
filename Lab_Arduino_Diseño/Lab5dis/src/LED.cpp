@@ -1,19 +1,25 @@
 #include "LED.h"
 
-Led::Led(byte pin) {
-  this->pin = pin;
-  init();
+cont::cont(uint8_t pines[], uint8_t cuenta){
+  
+  }
+
+void cont::init(){
+  DDRC = B11110000;
+  
 }
 
-void Led::init() {
-  pinMode(pin, OUTPUT);
-  off();
+void cont::incremento(){
+  c++;
+  PORTC = c;
+  if(c == 60){
+    c = 0;
+  }
+  
 }
 
-void Led::on() {
-  digitalWrite(pin, HIGH);
-}
-
-void Led::off() {
-  digitalWrite(pin, LOW);
+void cont::decremento(){
+  c--;
+  PORTC = c;
+  
 }
