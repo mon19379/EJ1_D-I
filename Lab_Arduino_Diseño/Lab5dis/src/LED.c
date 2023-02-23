@@ -1,6 +1,6 @@
 #include "LED.h"
 
-cont::cont(uint8_t pines[], uint8_t cuenta){
+contador::cont(uint8_t pines[], uint8_t cuenta){
   
   }
 

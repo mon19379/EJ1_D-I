@@ -2,7 +2,7 @@
 #define MY_LED_H
 #include <Arduino.h>
 
-class cont {
+class contador {
   
   private:
     uint8_t x;
