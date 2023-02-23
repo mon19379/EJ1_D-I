@@ -24,8 +24,8 @@ int FLGC2;
 uint8_t Cont1;
 uint8_t Cont2;
 
-cont c1((uint8_t[]){6, 7, 8, 9}, Cont1);
-cont c2((uint8_t[]){6, 7, 8, 9}, Cont2);
+cont c1(Cont1);
+cont c2(Cont2);
 
 Button Bo1(Bot1);
 Button Bo2(Bot2);
@@ -35,10 +35,12 @@ void setup() {
   // put your setup code here, to run once:
   c1.init();
   c2.init();
+  Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  Serial.println(swtch);
   if(Bo1.isPressed()){
     flag = 1;
   }
@@ -72,6 +74,7 @@ void loop() {
   }
   else if(flag2 == 1 && !Bo3.isPressed()){
     swtch++;
+    flag2 = 0;
   }
   if(swtch == 1){
     FLGC1 = 1;

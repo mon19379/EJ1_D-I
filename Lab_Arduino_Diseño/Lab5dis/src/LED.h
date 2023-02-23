@@ -11,7 +11,7 @@ class cont {
     uint8_t max;
     uint8_t min;
   public:
-    cont( uint8_t pines [], uint8_t cuenta);
+    cont(uint8_t cuenta);
     void init();
     void incremento();
     void decremento();
