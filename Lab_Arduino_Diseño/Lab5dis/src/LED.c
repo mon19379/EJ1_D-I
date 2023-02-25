@@ -6,20 +6,19 @@ contador::cont(uint8_t pines[], uint8_t cuenta){
 
 void cont::init(){
   DDRC = B11110000;
-  
 }
 
 void cont::incremento(){
-  c++;
-  PORTC = c;
-  if(c == 60){
-    c = 0;
+  puerto_var++;
+  PORTC = puerto_var;
+  if(puerto_var == 60){
+    puerto_var = 0;
   }
   
 }
 
 void cont::decremento(){
-  c--;
-  PORTC = c;
+  puerto_var--;
+  PORTC = puerto_var;
   
 }

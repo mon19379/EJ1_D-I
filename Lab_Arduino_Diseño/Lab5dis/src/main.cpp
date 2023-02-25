@@ -3,10 +3,7 @@ Diseño e Innovación
 Rodrigo Garcia, 19085
 Francisco Montufar, 19379
 */
-
 #include <Arduino.h>
-#include "BOT.h"
-
 #include "BOT.h"
 #include "LED.h"
 
@@ -14,13 +11,13 @@ Francisco Montufar, 19379
 #define Bot2 11
 #define Bot3 12
 
-int flag = 0;
-int flag1 = 0;
-int flag2 = 0;
-int swtch = 1;
+int toggle_bot1 = 0;
+int toggle_bot2 = 0;
+int toggle_bot2 = 0;
+int Selector = 1;
 
-int FLGC1;
-int FLGC2;
+int Contador_1;
+int Contador_2;
 
 uint8_t Cont1;
 uint8_t Cont2;
@@ -41,52 +38,52 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(swtch);
+  Serial.println(Selector);
   if(Bo1.isPressed()){
-    flag = 1;
+    toggle_bot1 = 1;
   }
 
-  else if(flag == 1 && !Bo1.isPressed()){
-    flag = 0;
-    if(FLGC1 == 1){
+  else if(toggle_bot1 == 1 && !Bo1.isPressed()){
+    toggle_bot1 = 0;
+    if(Contador_1 == 1){
       c1.incremento();
       }
-    if (FLGC2 == 1){
+    if (Contador_2 == 1){
       c2.incremento();    
       } 
     }
   
   if(Bo2.isPressed()){
-    flag1 = 1;
+    toggle_bot2 = 1;
   }
 
-  else if(flag1 == 1 && !Bo2.isPressed()){
-    flag1 = 0;
-    if(FLGC1 == 1){
+  else if(toggle_bot2 == 1 && !Bo2.isPressed()){
+    toggle_bot2 = 0;
+    if(Contador_1 == 1){
       c1.decremento();
       }
-    if (FLGC2 == 1){
+    if (Contador_2 == 1){
       c2.decremento();    
       }
     }
 
   if(Bo3.isPressed()){
-    flag2 = 1;
+    toggle_bot2 = 1;
   }
-  else if(flag2 == 1 && !Bo3.isPressed()){
-    swtch++;
-    flag2 = 0;
+  else if(toggle_bot2 == 1 && !Bo3.isPressed()){
+    Selector++;
+    toggle_bot2 = 0;
   }
-  if(swtch == 1){
-    FLGC1 = 1;
-    FLGC2 = 0;
+  if(Selector == 1){
+    Contador_1 = 1;
+    Contador_2 = 0;
   }
-  if(swtch == 2){
-    FLGC2 = 1;
-    FLGC1 = 0;
+  if(Selector == 2){
+    Contador_2 = 1;
+    Contador_1 = 0;
   }
-  if(swtch == 3){
-    swtch = 1;
+  if(Selector == 3){
+    Selector = 1;
   }
  }
 
