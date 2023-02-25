@@ -5,6 +5,7 @@
 
 class Button {
   
+//Funciones privadas
   private:
     byte pin;
     byte state;
@@ -12,6 +13,7 @@ class Button {
     unsigned long lastDebounceTime = 0;
     unsigned long debounceDelay = 50;
     
+//Funciones publicas
   public:
     Button(byte pin);
 
